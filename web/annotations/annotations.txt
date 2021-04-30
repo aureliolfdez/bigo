@@ -1,0 +1,7 @@
+wb;Caenorhabditis elegans
+fb;Drosophila melanogaster
+goa_human;Homo sapiens
+mgi;Mus musculus
+gramene_oryza;Oryza sativa
+goa_pdb;Protein Data Bank [multispecies]
+sgd;Saccharomyces cerevisiae

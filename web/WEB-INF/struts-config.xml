@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="ExecuteEnrichmentProvideActionForm" type="struts.enrichment.ExecuteEnrichmentProvideActionForm"/>
+        <form-bean name="UndoActionActionForm" type="struts.ranking.UndoActionActionForm"/>
+        <form-bean name="DownloadAnyRankingCreateActionForm" type="struts.ranking.DownloadAnyRankingCreateActionForm"/>
+        <form-bean name="DeleteCompleteGenesProvideActionForm" type="struts.enrichment.DeleteCompleteGenesProvideActionForm"/>
+        <form-bean name="BackSelectGenesProvideActionForm" type="struts.enrichment.BackSelectGenesProvideActionForm"/>
+        <form-bean name="BackSelectGenesProvideAction" type="struts.enrichment.BackSelectGenesProvideAction"/>
+        <form-bean name="SelectGenesProvideActionForm" type="struts.enrichment.SelectGenesProvideActionForm"/>
+        <form-bean name="ApplyFiltersGraphCreateActionForm" type="struts.graph.ApplyFiltersGraphCreateActionForm"/>
+        <form-bean name="DownloadGraphInfoCreateActionForm" type="struts.graph.DownloadGraphInfoCreateActionForm"/>
+        <form-bean name="DownloadGraphNoFilteredCreateActionForm" type="struts.graph.DownloadGraphNoFilteredCreateActionForm"/>
+        <form-bean name="BackGraphCreateActionForm" type="struts.graph.BackGraphCreateActionForm"/>
+        <form-bean name="ViewGraphCreateActionForm" type="struts.graph.ViewGraphCreateActionForm"/>
+        <form-bean name="ExecuteGraphComparativeCreateActionForm" type="struts.graph.ExecuteGraphComparativeCreateActionForm"/>
+        <form-bean name="BackComparativeRankingCreateActionForm" type="struts.ranking.BackComparativeRankingCreateActionForm"/>
+        <form-bean name="DownloadViewComparativeStopwordsCreateActionForm" type="struts.ranking.DownloadViewComparativeStopwordsCreateActionForm"/>
+        <form-bean name="DownloadViewComparativeUniqueCreateActionForm" type="struts.ranking.DownloadViewComparativeUniqueCreateActionForm"/>
+        <form-bean name="DownloadViewComparativeRankingCreateActionForm" type="struts.ranking.DownloadViewComparativeRankingCreateActionForm"/>
+        <form-bean name="ViewComparativeRankingActionForm" type="struts.ranking.ViewComparativeRankingActionForm"/>
+        <form-bean name="ExecuteComparativeRankingCreateActionForm" type="struts.ranking.ExecuteComparativeRankingCreateActionForm"/>
+        <form-bean name="DownloadViewStopwordsCreateActionForm" type="struts.ranking.DownloadViewStopwordsCreateActionForm"/>
+        <form-bean name="DownloadViewUniqueCreateActionForm" type="struts.ranking.DownloadViewUniqueCreateActionForm"/>
+        <form-bean name="DownloadUniqueCreateActionForm" type="struts.ranking.DownloadUniqueCreateActionForm"/>
+        <form-bean name="DownloadStopwordsCreateActionForm" type="struts.ranking.DownloadStopwordsCreateActionForm"/>
+        <form-bean name="DownloadViewRankingCreateActionForm" type="struts.ranking.DownloadViewRankingCreateActionForm"/>
+        <form-bean name="DropUniquesActionForm" type="struts.ranking.DropUniquesActionForm"/>
+        <form-bean name="BackViewRankingCreateActionForm" type="struts.ranking.BackViewRankingCreateActionForm"/>
+        <form-bean name="ViewSavedRankingActionForm" type="struts.ranking.ViewSavedRankingActionForm"/>
+        <form-bean name="ComparativeRankingCreateActionForm" type="struts.ranking.ComparativeRankingCreateActionForm"/>
+        <form-bean name="ExecuteGraphCreateActionForm" type="struts.graph.ExecuteGraphCreateActionForm"/>
+        <form-bean name="BackEnrichmentCreateActionForm" type="struts.enrichment.BackEnrichmentCreateActionForm"/>
+        <form-bean name="DropStopwordsActionForm" type="struts.ranking.DropStopwordsActionForm"/>
+        <form-bean name="DropSelectRankingCreateActionForm" type="struts.ranking.DropSelectRankingCreateActionForm"/>
+        <form-bean name="BackRankingCreateActionForm" type="struts.ranking.BackRankingCreateActionForm"/>
+        <form-bean name="CheckStopwordsActionForm" type="struts.ranking.CheckStopwordsActionForm"/>
+        <form-bean name="DownloadRankingCreateActionForm" type="struts.ranking.DownloadRankingCreateActionForm"/>
+        <form-bean name="DownloadRankingNoFilteredCreateActionForm" type="struts.ranking.DownloadRankingNoFilteredCreateActionForm"/>
+        <form-bean name="DownloadCurrentRankingCreateActionForm" type="struts.ranking.DownloadCurrentRankingCreateActionForm"/>
+        <form-bean name="SaveRankingCreateActionForm" type="struts.ranking.SaveRankingCreateActionForm"/>
+        <form-bean name="ApplyFiltersCreateActionForm" type="struts.ranking.ApplyFiltersCreateActionForm"/>
+        <form-bean name="ExecuteRankingCreateActionForm" type="struts.ranking.ExecuteRankingCreateActionForm"/>
+        <form-bean name="DownloadEnrichmentFileCreateActionForm" type="struts.enrichment.DownloadEnrichmentFileCreateActionForm"/>
+        <form-bean name="DownloadEnrichmentCreateActionForm" type="struts.enrichment.DownloadEnrichmentCreateActionForm"/>
+        <form-bean name="EnrichmentVisualizeCreateActionForm" type="struts.enrichment.EnrichmentVisualizeCreateActionForm"/>
+        <form-bean name="ExecuteNewEnrichmentActionForm" type="struts.enrichment.ExecuteNewEnrichmentActionForm"/>
+        <form-bean name="ViewClustersProvideActionForm" type="struts.enrichment.ViewClustersProvideActionForm"/>
+        <form-bean name="QuitProvideActionForm" type="struts.enrichment.QuitProvideActionForm"/>
+    
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        
+    </global-forwards>
+
+    <action-mappings>
+        <!-- PROVIDE: First Phase - Step 2 a Salida de BIGO -->
+        <action input="/bigo/provide_gene.jsp" name="QuitProvideActionForm" path="/quitProvide" scope="request" type="struts.enrichment.QuitProvideAction">
+            <forward name="success" path="/bigo.jsp"/>
+        </action>
+        <!-- PROVIDE: First Phase - Step 2 a Step 3 -->
+        <action input="/bigo.jsp" name="ViewClustersProvideActionForm" path="/viewClustersProvide" scope="request" type="struts.enrichment.ViewClustersProvideAction">
+            <forward name="success" path="/WEB-INF/enrichment/provide/index.jsp"/>
+            <forward name="failure" path="/bigo.jsp"/>
+        </action>
+        <!-- NEW: First Phase - Step 2 a Step 3 -->
+        <action input="/new_enrichment.jsp" name="ExecuteNewEnrichmentActionForm" path="/executeNewEnrichment" scope="request" type="struts.enrichment.ExecuteNewEnrichmentAction">
+            <forward name="success" path="/WEB-INF/enrichment/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/enrichment/new/index.jsp" name="EnrichmentVisualizeCreateActionForm" path="/enrichmentVisualizeCreate" scope="request" type="struts.enrichment.EnrichmentVisualizeCreateAction">
+            <forward name="success" path="/WEB-INF/enrichment/new/index.jsp"/>                    
+        </action>
+        <action input="/WEB-INF/enrichment/new/index.jsp" name="DownloadEnrichmentCreateActionForm" path="/downloadEnrichmentCreate" scope="request" type="struts.enrichment.DownloadEnrichmentCreateAction">
+            <forward name="success" path="/WEB-INF/enrichment/new/index.jsp#options"/>
+        </action>
+        <action input="/WEB-INF/enrichment/new/index.jsp" name="DownloadEnrichmentFileCreateActionForm" path="/downloadEnrichmentFileCreate" scope="request" type="struts.enrichment.DownloadEnrichmentFileCreateAction">
+            <forward name="success" path="/WEB-INF/enrichment/new/index.jsp#options"/>
+        </action>
+        <action input="/WEB-INF/enrichment/new/index.jsp" name="ExecuteRankingCreateActionForm" path="/executeRankingCreate" scope="request" type="struts.ranking.ExecuteRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="ApplyFiltersCreateActionForm" path="/applyFiltersCreate" scope="request" type="struts.ranking.ApplyFiltersCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="SaveRankingCreateActionForm" path="/saveRankingCreate" scope="request" type="struts.ranking.SaveRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="DownloadRankingNoFilteredCreateActionForm" path="/downloadRankingNoFilteredCreate" scope="request" type="struts.ranking.DownloadRankingNoFilteredCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="DownloadCurrentRankingCreateActionForm" path="/downloadCurrentRankingCreate" scope="request" type="struts.ranking.DownloadCurrentRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="DownloadRankingCreateActionForm" path="/downloadRankingCreate" scope="request" type="struts.ranking.DownloadRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="CheckStopwordsActionForm" path="/checkStopwords" scope="request" type="struts.ranking.CheckStopwordsAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="BackRankingCreateActionForm" path="/backRankingCreate" scope="request" type="struts.ranking.BackRankingCreateAction">
+            <forward name="success" path="/WEB-INF/enrichment/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="DropSelectRankingCreateActionForm" path="/dropSelectRankingCreate" scope="request" type="struts.ranking.DropSelectRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="DropStopwordsActionForm" path="/dropStopwords" scope="request" type="struts.ranking.DropStopwordsAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/backEnrichmentCreate" name="BackEnrichmentCreateActionForm" path="/backEnrichmentCreate" scope="request" type="struts.enrichment.BackEnrichmentCreateAction">
+            <forward name="success" path="/new_enrichment.jsp"/>
+            <forward name="error" path="/new_enrichment.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="ExecuteGraphCreateActionForm" path="/executeGraphCreate" scope="request" type="struts.graph.ExecuteGraphCreateAction">
+            <forward name="success" path="/WEB-INF/graph/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="ComparativeRankingCreateActionForm" path="/comparativeRankingCreate" scope="request" type="struts.ranking.ComparativeRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/comparative.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="ViewSavedRankingActionForm" path="/viewSavedRanking" scope="request" type="struts.ranking.ViewSavedRankingAction">
+            <forward name="success" path="/WEB-INF/ranking/new/view.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/view.jsp" name="BackViewRankingCreateActionForm" path="/backViewRankingCreate" scope="request" type="struts.ranking.BackViewRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="DropUniquesActionForm" path="/dropUniques" scope="request" type="struts.ranking.DropUniquesAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/view.jsp" name="DownloadViewRankingCreateActionForm" path="/downloadViewRankingCreate" scope="request" type="struts.ranking.DownloadViewRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/view.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="DownloadStopwordsCreateActionForm" path="/downloadStopwordsCreate" scope="request" type="struts.ranking.DownloadStopwordsCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="DownloadUniqueCreateActionForm" path="/downloadUniqueCreate" scope="request" type="struts.ranking.DownloadUniqueCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/view.jsp" name="DownloadViewStopwordsCreateActionForm" path="/downloadViewStopwordsCreate" scope="request" type="struts.ranking.DownloadViewStopwordsCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/view.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/view.jsp" name="DownloadViewUniqueCreateActionForm" path="/downloadViewUniqueCreate" scope="request" type="struts.ranking.DownloadViewUniqueCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/view.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/comparative.jsp" name="ExecuteComparativeRankingCreateActionForm" path="/executeComparativeRankingCreate" scope="request" type="struts.ranking.ExecuteComparativeRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/comparative.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/comparative.jsp" name="ViewComparativeRankingActionForm" path="/viewComparativeRanking" scope="request" type="struts.ranking.ViewComparativeRankingAction">
+            <forward name="success" path="/WEB-INF/ranking/new/comparative.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/comparative.jsp" name="DownloadViewComparativeStopwordsCreateActionForm" path="/downloadViewComparativeStopwordsCreate" scope="request" type="struts.ranking.DownloadViewComparativeStopwordsCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/comparative.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/comparative.jsp" name="DownloadViewComparativeUniqueCreateActionForm" path="/downloadViewComparativeUniqueCreate" scope="request" type="struts.ranking.DownloadViewComparativeUniqueCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/comparative.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/comparative.jsp" name="DownloadViewComparativeRankingCreateActionForm" path="/downloadViewComparativeRankingCreate" scope="request" type="struts.ranking.DownloadViewComparativeRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/comparative.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/comparative.jsp" name="BackComparativeRankingCreateActionForm" path="/backComparativeRankingCreate" scope="request" type="struts.ranking.BackComparativeRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/comparative.jsp" name="ExecuteGraphComparativeCreateActionForm" path="/executeGraphComparativeCreate" scope="request" type="struts.graph.ExecuteGraphComparativeCreateAction">
+            <forward name="success" path="/WEB-INF/graph/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/graph/new/index.jsp" name="ViewGraphCreateActionForm" path="/viewGraphCreate" scope="request" type="struts.graph.ViewGraphCreateAction">
+            <forward name="success" path="/WEB-INF/graph/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/graph/new/index.jsp" name="BackGraphCreateActionForm" path="/backGraphCreate" scope="request" type="struts.graph.BackGraphCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/graph/new/index.jsp" name="DownloadGraphNoFilteredCreateActionForm" path="/downloadGraphNoFilteredCreate" scope="request" type="struts.graph.DownloadGraphNoFilteredCreateAction">
+            <forward name="success" path="/WEB-INF/graph/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/graph/new/index.jsp" name="DownloadGraphInfoCreateActionForm" path="/downloadGraphInfoCreate" scope="request" type="struts.graph.DownloadGraphInfoCreateAction">
+            <forward name="success" path="/WEB-INF/graph/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/graph/new/index.jsp" name="ApplyFiltersGraphCreateActionForm" path="/applyFiltersGraphCreate" scope="request" type="struts.graph.ApplyFiltersGraphCreateAction">
+            <forward name="success" path="/WEB-INF/graph/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/enrichment/provide/index.jsp" name="SelectGenesProvideActionForm" path="/selectGenesProvide" scope="request" type="struts.enrichment.SelectGenesProvideAction">
+            <forward name="noGenes" path="/WEB-INF/enrichment/provide/selectGenes.jsp"/>
+            <forward name="withGenes" path="/WEB-INF/ranking/provide/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/enrichment/provide/selectGenes.jsp" name="BackSelectGenesProvideActionForm" path="/backSelectGenesProvide" scope="request" type="struts.enrichment.BackSelectGenesProvideAction">
+            <forward name="success" path="/WEB-INF/enrichment/provide/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/enrichment/provide/selectGenes.jsp" name="DeleteCompleteGenesProvideActionForm" path="/deleteCompleteGenesProvide" scope="request" type="struts.enrichment.DeleteCompleteGenesProvideAction">
+            <forward name="success" path="/WEB-INF/enrichment/provide/selectGenes.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="DownloadAnyRankingCreateActionForm" path="/downloadAnyRankingCreate" scope="request" type="struts.ranking.DownloadAnyRankingCreateAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/ranking/new/index.jsp" name="UndoActionActionForm" path="/undoAction" scope="request" type="struts.ranking.UndoActionAction">
+            <forward name="success" path="/WEB-INF/ranking/new/index.jsp"/>
+        </action>
+        <action input="/WEB-INF/enrichment/provide/selectGenes.jsp" name="ExecuteEnrichmentProvideActionForm" path="/executeEnrichmentProvide" scope="request" type="struts.enrichment.ExecuteEnrichmentProvideAction">
+            <forward name="success" path="/WEB-INF/ranking/provide/index.jsp"/>
+        </action>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
